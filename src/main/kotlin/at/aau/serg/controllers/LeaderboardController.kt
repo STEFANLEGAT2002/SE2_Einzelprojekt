@@ -19,7 +19,7 @@ class LeaderboardController(
 
     @GetMapping
     fun getLeaderboard(@RequestParam(required = false) rank: Int?): List<GameResult> {
-        var ld_board = gameResultService.getGameResults()
+        var ld_board = gameResultService.getAllSorted();
         if(rank == null){
             return ld_board
 

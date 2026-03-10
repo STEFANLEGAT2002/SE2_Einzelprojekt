@@ -26,11 +26,11 @@ class LeaderboardControllerTests {
         val second = GameResult(2, "second", 15, 10.0)
         val third = GameResult(3, "third", 10, 15.0)
 
-        whenever(mockedService.getGameResults()).thenReturn(listOf(second, first, third))
+        whenever(mockedService.getAllSorted()).thenReturn(listOf(first, second, third))
 
-        val res: List<GameResult> = controller.getLeaderboard()
+        val res: List<GameResult> = controller.getLeaderboard(null)
 
-        verify(mockedService).getGameResults()
+        verify(mockedService).getAllSorted()
         assertEquals(3, res.size)
         assertEquals(first, res[0])
         assertEquals(second, res[1])
@@ -45,7 +45,7 @@ class LeaderboardControllerTests {
 
         whenever(mockedService.getGameResults()).thenReturn(listOf(second, first, third))
 
-        val res: List<GameResult> = controller.getLeaderboard()
+        val res: List<GameResult> = controller.getLeaderboard(null)
 
         verify(mockedService).getGameResults()
         assertEquals(3, res.size)
