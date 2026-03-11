@@ -25,7 +25,7 @@ class LeaderboardController(
 
         }
 
-        if(rank < 1 || rank > gameResultService.getGameResults().size){
+        if(rank < 1 || rank > ld_board.size){
             throw ResponseStatusException(HttpStatus.BAD_REQUEST)
         }
 
